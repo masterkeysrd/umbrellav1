@@ -1,33 +1,36 @@
-<div class='main-nav'>
-    <div class='navbar navbar-inverse'>
-        <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-            </button>
-            <a class='navbar-brand' [routerLink]='["/"]'>UmbrellaV1</a>
-        </div>
-        <div class='clearfix'></div>
-        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
-            <ul class='nav navbar-nav'>
-                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-home'></span> Home
-                    </a>
-                </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/counter"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-education'></span> Counter
-                    </a>
-                </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<div>
+  <a [routerLink]='["/login"]' class=""> Iniciar Seccion </a>
+  <a [routerLink]='["/sign-up"]' class="">Registrar</a>
 </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Umbrella</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle Navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="mainMenu">
+    <ul class="navbar-nav mr-auto">
+      <li [routerLinkActive]='["active"]' [routerLinkActiveOptions]='{ exact: true }' class="nav-item">
+        <a [routerLink]='["/"]' (click)='collapse()' class="nav-link">
+          <span class='glyphicon glyphicon-home'></span> Inicio
+        </a>
+      </li>
+      <li [routerLinkActive]='["link-active"]' class="nav-item">
+        <a [routerLink]='["/shops"]' (click)="collapse()" class="nav-link">
+          <span class="glyphicon glyphicon-th-list"></span> Tiendas
+        </a>
+      </li>
+      <li [routerLinkActive]='["link-active"]' class="nav-item">
+        <a [routerLink]='["/test"]' (click)="collapse()" class="nav-link">
+          <span class="glyphicon glyphicon-th-list"></span> Test
+        </a>
+      </li>
+    </ul>
+
+    <div class="form-inline my-2 my-lg-0">
+      <input type="search" class="form-control mr-sm-2" />
+      <button class="btn btn-primary btn-mofied">Buscar</button>
+      <a class="btn btn-secundary ml-1" [routerLink]='["/product/publication"]'>Nuevo Anuncio</a>
+    </div>
+  </div>
+</nav>

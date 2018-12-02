@@ -1,0 +1,41 @@
+<div>
+  <p>Status: {{signUpForm.status}}</p>
+  <h2>Registro</h2>
+  <form class="form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <h4>Datos Personales</h4>
+    <div class="form-group">
+      <label for="field_name">Nombre</label>
+      <input type="text" class="form-control" id="field_name" formControlName="name" />
+    </div>
+    <div class="form-group">
+      <label for="field_mail">Correo</label>
+      <input type="email" class="form-control" id="field_mail" formControlName="mail" />
+    </div>
+    <div class="form-group">
+      <label for="field_username">Nombre de usuario</label>
+      <input type="text" class="form-control" id="field_username" formControlName="username" />
+    </div>
+    <div class="form-group">
+      <label for="field_password">Contraseña</label>
+      <input type="password" class="form-control" id="field_password" formControlName="password" />
+    </div>
+    <div class="form-group">
+      <label for="field_confirm_password">Confirmar Contraseña</label>
+      <input type="password" class="form-control" id="field_confirm_password" formControlName="confirmPassword" />
+    </div>
+    <h4>Contacto</h4>
+    <div class="form-group">
+      <label for="field_phone">Telefono</label>
+      <input type="tel" class="form-control" id="field_phone" name="field_phone" formControlName="phone" />
+    </div>
+    <div class="form-group">
+      <label for="field_cell">Celular</label>
+      <input type="tel" class="form-control" id="field_cell" name="field_cell" formControlName="cell" />
+    </div>
+    <div class="form-group">
+      <label for="field_address">Direccion</label>
+      <textarea class="form-control" id="field_address" formControlName="address"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!signUpForm.valid">Enviar</button>
+  </form>
+</div>
