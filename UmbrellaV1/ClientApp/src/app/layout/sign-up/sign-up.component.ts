@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UserService } from '../../shared/services/user.service';
+import { User } from '../../shared/models/user';
 
 @Component({
   selector: 'app-sign-up',
@@ -6,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+  signUpForm: FormGroup;
 
   constructor(private userService: UserService, private fb: FormBuilder) {
     this.createForm();
@@ -36,9 +40,4 @@ export class SignUpComponent implements OnInit {
         console.error(error);
       })
   }
-
-  constructor(private userService: UserService, private fb: FormBuilder) {
-    this.createForm();
-  }
-
 }

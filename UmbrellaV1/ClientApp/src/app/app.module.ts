@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -16,7 +16,6 @@ import { ProductItemComponent } from './layout/product-item/product-item.compone
 import { ProductPublicationComponent } from './layout/product-publication/product-publication.component';
 import { ProductViewComponent } from './layout/product-view/product-view.component';
 import { PromotionComponent } from './layout/promotion/promotion.component';
-import { ShoptsComponent } from './layout/shopts/shopts.component';
 import { SignUpComponent } from './layout/sign-up/sign-up.component';
 import { LoginComponent } from './security/login/login.component';
 
@@ -28,6 +27,7 @@ import {
   LinkedinLoginProvider,
 } from "angular-6-social-login";
 import { LoginService } from './shared/services/login.service';
+import { ShopsComponent } from './layout/shops/shops.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -64,19 +64,24 @@ export function getAuthServiceConfigs() {
     ProductPublicationComponent,
     ProductViewComponent,
     PromotionComponent,
-    ShoptsComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    ShopsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     SocialLoginModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'sign-up', component: SignUpComponent },
+      { path: 'shops', component: ShopsComponent },
+      { path: 'product/publication', component: ProductPublicationComponent },
     ])
   ],
   providers: [
