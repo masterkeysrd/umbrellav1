@@ -11,8 +11,8 @@ export class UserService {
     this.serviceUrl = baseUrl + 'api/users';
   }
 
-  save(user: User): Observable<any> {
-    return this.http.post(this.serviceUrl, user);
+  save(user: User): Observable<Object> {
+    return this.http.post<Object>(this.serviceUrl, user);
   }
 
 }

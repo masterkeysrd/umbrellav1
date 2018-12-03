@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
         let token = (<any>data).token;
         localStorage.setItem("Jwt", token);
+        console.log(data);
       },
         err => {
           console.error(err);

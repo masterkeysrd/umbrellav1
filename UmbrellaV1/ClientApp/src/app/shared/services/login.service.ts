@@ -11,8 +11,8 @@ export class LoginService {
     this.apiUrl = baseUrl + "api/v1/auth/";
   }
 
-  login(userLogin: UserLogin): Observable<any> {
-    return this.http.post(this.apiUrl + "login", userLogin);
+  login(userLogin: UserLogin): Observable<Object> {
+    return this.http.post<Object>(this.apiUrl + "login", userLogin);
   }
 
 }
