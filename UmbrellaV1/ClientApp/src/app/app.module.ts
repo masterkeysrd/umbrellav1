@@ -28,6 +28,7 @@ import {
 } from "angular-6-social-login";
 import { LoginService } from './shared/services/login.service';
 import { ShopsComponent } from './layout/shops/shops.component';
+import { UserService } from './shared/services/user.service';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -86,6 +87,7 @@ export function getAuthServiceConfigs() {
   ],
   providers: [
     LoginService,
+    UserService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
