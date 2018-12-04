@@ -11,8 +11,8 @@
       <label>Contraseña</label>
       <input class="form-control" id="password" name="password" type="password" [(ngModel)]="loginData.Password" placeholder="Introduzca la contraseña" />
     </div><br />
-    <button class="btn btn-primary btl" (click)="onLogin()">Iniciar Seccion</button>
-    <button class="btn btn-secundary btl" (click)="socialSignIn('facebook')">Iniciar con FB</button>
+    <button class="btn btn-outline-info btl" (click)="onLogin()">Iniciar Seccion</button>
+    <button class="btn btn-secundary icon-facebook" (click)="socialSignIn('facebook')">Facebook</button>
   </form>
 </div>
 
