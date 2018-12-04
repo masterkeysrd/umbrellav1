@@ -20,8 +20,10 @@ li .glyphicon {
 li.link-active a,
 li.link-active a:hover,
 li.link-active a:focus {
-  background-color: #4189C7;
+  background-color: #2A6171;
   color: white;
+  
+
 }
 
 /* Keep the nav menu independent of scrolling and on top of other items */
@@ -67,14 +69,14 @@ li.link-active a:focus {
   .navbar ul {
     float: none;
   }
-
+  /*Tamano de las letras de los links del nav*/
   .navbar li {
     float: none;
     font-size: 20px;
     font-family:sans-serif;
     margin: 6px;
   }
-  /*Tamano de la caja morada*/
+  
     .navbar li a {
       padding: 10px 16px;
       border-radius: 4px;
