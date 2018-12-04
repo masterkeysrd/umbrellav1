@@ -3,12 +3,17 @@ li .glyphicon {
     margin-right: 10px;
 }
 
+/*Botones Iniciar seccion y Registrar*/
 .log,
 .log-two {
   margin: 10px 10px;
 }
 
 
+/*Prueva de color para el el logo donde va el logo */
+.bg-light {
+  background-color: #80deea !important;
+}
 
 /* Highlighting rules for nav menu items */
 li.link-active a,
@@ -26,7 +31,7 @@ li.link-active a:focus {
   right: 0;
   z-index: 1;
 }
-
+/*Letra que funciona como logo*/
 .navbar-brand {
   font-size: 35px;
   margin-left: 20px;
@@ -45,6 +50,7 @@ li.link-active a:focus {
     border-radius: 0px;
     border-width: 0px;
     height: 100%;
+   
   }
 
   .navbar-header {
@@ -53,10 +59,8 @@ li.link-active a:focus {
 
   /*Caja contenedora de el segundo nav donde esta search*/
   .navbar-collapse {
-    border-top: 1px solid #444;
     padding: 0px;
-    background-color:blueviolet;
-    width:280%;
+    width: 480%;
   }
 
   .navbar ul {
@@ -68,7 +72,7 @@ li.link-active a:focus {
     font-size: 15px;
     margin: 6px;
   }
-
+  /*Tamano de la caja morada*/
     .navbar li a {
       padding: 10px 16px;
       border-radius: 4px;
@@ -81,10 +85,13 @@ li.link-active a:focus {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  /*Prueva de colo para saber hasta donde apliar el nav anidado donde
-    se encuentra la busqueda y los links*/
-  .bg-light {
-    background-color: #80deea !important;
+  
+ 
+  /*Boton publicar anuncio*/
+  .ml-1 {
+   
+    width: 3%;
+    height: 2%;
   }
 
   }
