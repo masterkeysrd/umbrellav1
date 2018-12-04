@@ -1,13 +1,21 @@
+
 li .glyphicon {
     margin-right: 10px;
 }
+
+.log,
+.log-two {
+  margin: 10px 10px;
+}
+
+
 
 /* Highlighting rules for nav menu items */
 li.link-active a,
 li.link-active a:hover,
 li.link-active a:focus {
-    background-color: #4189C7;
-    color: white;
+  background-color: #4189C7;
+  color: white;
 }
 
 /* Keep the nav menu independent of scrolling and on top of other items */
@@ -19,9 +27,16 @@ li.link-active a:focus {
     z-index: 1;
 }
 
+.navbar-brand {
+  font-size: 35px;
+  margin-left: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #004d40;
+}
+
 @media (min-width: 768px) {
-    /* On small screens, convert the nav menu to a vertical sidebar */
-    .main-nav {
+  /* On small screens, convert the nav menu to a vertical sidebar */
+  .main-nav {
         height: 100%;
         width: calc(25% - 20px);
     }
@@ -33,13 +48,17 @@ li.link-active a:focus {
     .navbar-header {
         float: none;
     }
-    .navbar-collapse {
-        border-top: 1px solid #444;
-        padding: 0px;
-    }
-    .navbar ul {
-        float: none;
-    }
+  .navbar-collapse {
+    border-top: 1px solid #444;
+    padding: 0px;
+    
+  }
+
+ 
+  
+  .navbar ul {
+    float: none;
+  }
     .navbar li {
         float: none;
         font-size: 15px;
