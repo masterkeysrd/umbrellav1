@@ -11,6 +11,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using UmbrellaV1.Utils;
 using System.Text;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Newtonsoft.Json;
+using System.Buffers;
 
 namespace UmbrellaV1
 {
@@ -48,6 +51,15 @@ namespace UmbrellaV1
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
+            });
+
+            services.AddMvc(options =>
+            {
+                options.OutputFormatters.Clear();
+                options.OutputFormatters.Add(new JsonOutputFormatter(new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                }, ArrayPool<char>.Shared));
             });
 
             services.AddDbContext<umbrella_v1Context>(options =>

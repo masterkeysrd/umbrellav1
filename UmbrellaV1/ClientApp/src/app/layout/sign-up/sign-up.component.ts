@@ -32,7 +32,10 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
-    const result: User = Object.assign({}, this.signUpForm.value);
+    let result: User = Object.assign({}, this.signUpForm.value);
+    result.roleId = 1;
+    result.cityId = 1;
+    result.userId = 1;
     this.userService.save(result)
       .subscribe(data => {
         console.log(data);

@@ -18,7 +18,7 @@ export class SubCategoryService {
     return this.http.post<SubCategory>(this.apiUrl, subCategory);
   }
 
-  getAll(query: any): Observable<SubCategory[]> {
+  getAll(query?: any): Observable<SubCategory[]> {
     return this.http.get<SubCategory[]>(this.apiUrl, { params: query });
   }
 }

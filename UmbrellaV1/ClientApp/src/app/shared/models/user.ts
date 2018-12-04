@@ -1,5 +1,5 @@
 import { City } from './city';
-import { Advertisement } from './advertisment';
+import { Advertisement } from './advertisement';
 import { Role } from './role';
 
 export class User {

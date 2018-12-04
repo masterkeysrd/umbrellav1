@@ -8,7 +8,7 @@ export class UserService {
   serviceUrl: string;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this.serviceUrl = baseUrl + 'api/users';
+    this.serviceUrl = baseUrl + 'api/v1/users';
   }
 
   save(user: User): Observable<Object> {

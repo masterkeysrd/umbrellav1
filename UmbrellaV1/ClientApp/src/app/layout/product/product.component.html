@@ -3,9 +3,7 @@
   <div class="product-result">
     <div class="product-result-head">Resultados de la busqueda</div>
     <div class="product-result-body">
-      <app-product-item></app-product-item>
-      <div class="divider"></div>
-      <app-product-item></app-product-item>
+      <app-product-item *ngFor="let p of advertisements" [productItem]="p"></app-product-item>
     </div>
   </div>
 </div>
