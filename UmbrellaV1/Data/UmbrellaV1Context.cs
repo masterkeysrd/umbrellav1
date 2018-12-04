@@ -19,5 +19,9 @@ namespace UmbrellaV1.Models
         public DbSet<UmbrellaV1.Models.Role> Role { get; set; }
 
         public DbSet<UmbrellaV1.Models.Advertisement> Advertisement { get; set; }
+
+        public DbSet<UmbrellaV1.Models.Category> Category { get; set; }
+
+        public DbSet<UmbrellaV1.Models.SubCategory> SubCategory { get; set; }
     }
 }

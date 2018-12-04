@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class LoginService {
 
-  apiUrl: string;
+  private apiUrl: string;
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.apiUrl = baseUrl + "api/v1/auth/";
   }

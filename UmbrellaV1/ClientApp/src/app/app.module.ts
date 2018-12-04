@@ -29,6 +29,12 @@ import {
 import { LoginService } from './shared/services/login.service';
 import { ShopsComponent } from './layout/shops/shops.component';
 import { UserService } from './shared/services/user.service';
+import { CategoryCreateComponent } from './admin/category/category-create/category-create.component';
+import { CategoryComponent } from './admin/category/category/category.component';
+import { CategoryService } from './shared/services/category.service';
+import { SubCategoryService } from './shared/services/sub-category.service';
+import { SubCategoryComponent } from './admin/sub-category/sub-category/sub-category.component';
+import { SubCategoryEditComponent } from './admin/sub-category/sub-category-edit/sub-category-edit.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -67,7 +73,11 @@ export function getAuthServiceConfigs() {
     PromotionComponent,
     SignUpComponent,
     LoginComponent,
-    ShopsComponent
+    ShopsComponent,
+    CategoryComponent,
+    CategoryCreateComponent,
+    SubCategoryComponent,
+    SubCategoryEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -83,11 +93,15 @@ export function getAuthServiceConfigs() {
       { path: 'sign-up', component: SignUpComponent },
       { path: 'shops', component: ShopsComponent },
       { path: 'product/publication', component: ProductPublicationComponent },
+      { path: 'admin/category/create', component: CategoryCreateComponent },
+      { path: 'admin/sub-category/create', component: SubCategoryEditComponent }
     ])
   ],
   providers: [
     LoginService,
     UserService,
+    CategoryService,
+    SubCategoryService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

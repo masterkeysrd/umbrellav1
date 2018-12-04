@@ -6,4 +6,18 @@
     <div class="product-publication-text">Click sobre la foto que deseas como imagen principal</div>
     <input type="file" class="form-control" />
   </div>
+
+  <div class="product-publication">
+    <div class="product-publication-title">Detalles del producto</div>
+    <div class="form-group">
+      <label for="field_title">Titulo publicación</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="field_category">Categoria</label>
+      <select class="form-control" id="field_category">
+        <option *ngFor="let c of categories" [value]="c.categoryId">{{c.description}}</option>
+      </select>
+    </div>
+  </div>
 </div>

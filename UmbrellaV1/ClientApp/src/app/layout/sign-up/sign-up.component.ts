@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../../shared/services/user.service';
 import { User } from '../../shared/models/user';
 
@@ -37,6 +37,7 @@ export class SignUpComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
       }, error => {
+        console.info(result);
         console.error(error);
       })
   }
