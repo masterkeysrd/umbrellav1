@@ -13,9 +13,9 @@ namespace UmbrellaV1.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly UmbrellaV1Context _context;
+        private readonly umbrella_v1Context _context;
 
-        public CategoriesController(UmbrellaV1Context context)
+        public CategoriesController(umbrella_v1Context context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace UmbrellaV1.Controllers
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCategory([FromRoute] int id)
+        public async Task<IActionResult> GetCategory([FromRoute] long id)
         {
             if (!ModelState.IsValid)
             {
@@ -48,7 +48,7 @@ namespace UmbrellaV1.Controllers
 
         // PUT: api/Categories/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory([FromRoute] int id, [FromBody] Category category)
+        public async Task<IActionResult> PutCategory([FromRoute] long id, [FromBody] Category category)
         {
             if (!ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace UmbrellaV1.Controllers
 
         // DELETE: api/Categories/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCategory([FromRoute] int id)
+        public async Task<IActionResult> DeleteCategory([FromRoute] long id)
         {
             if (!ModelState.IsValid)
             {
@@ -117,7 +117,7 @@ namespace UmbrellaV1.Controllers
             return Ok(category);
         }
 
-        private bool CategoryExists(int id)
+        private bool CategoryExists(long id)
         {
             return _context.Category.Any(e => e.CategoryId == id);
         }

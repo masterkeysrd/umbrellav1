@@ -13,9 +13,9 @@ namespace UmbrellaV1.Controllers
     [ApiController]
     public class SubCategoriesController : ControllerBase
     {
-        private readonly UmbrellaV1Context _context;
+        private readonly umbrella_v1Context _context;
 
-        public SubCategoriesController(UmbrellaV1Context context)
+        public SubCategoriesController(umbrella_v1Context context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace UmbrellaV1.Controllers
 
         // GET: api/SubCategories/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetSubCategory([FromRoute] int id)
+        public async Task<IActionResult> GetSubCategory([FromRoute] long id)
         {
             if (!ModelState.IsValid)
             {
@@ -48,7 +48,7 @@ namespace UmbrellaV1.Controllers
 
         // PUT: api/SubCategories/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSubCategory([FromRoute] int id, [FromBody] SubCategory subCategory)
+        public async Task<IActionResult> PutSubCategory([FromRoute] long id, [FromBody] SubCategory subCategory)
         {
             if (!ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace UmbrellaV1.Controllers
 
         // DELETE: api/SubCategories/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSubCategory([FromRoute] int id)
+        public async Task<IActionResult> DeleteSubCategory([FromRoute] long id)
         {
             if (!ModelState.IsValid)
             {
@@ -117,7 +117,7 @@ namespace UmbrellaV1.Controllers
             return Ok(subCategory);
         }
 
-        private bool SubCategoryExists(int id)
+        private bool SubCategoryExists(long id)
         {
             return _context.SubCategory.Any(e => e.SubCategoryId == id);
         }

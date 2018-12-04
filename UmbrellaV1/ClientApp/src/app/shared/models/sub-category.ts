@@ -5,4 +5,5 @@ export class SubCategory {
   description: string;
 
   categoryId: number;
+  category: Category;
 }

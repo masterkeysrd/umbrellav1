@@ -1,32 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
 namespace UmbrellaV1.Models
 {
-    public class User
+    public partial class User
     {
+        public User()
+        {
+            Advertisement = new HashSet<Advertisement>();
+        }
+
         public long UserId { get; set; }
-
-        [Required, MinLength(5), MaxLength(20)]
         public string UserName { get; set; }
-
-        [Required, MinLength(8)]
         public string Password { get; set; }
-
-        [Required]
         public string Name { get; set; }
-
-        [Required, EmailAddress]
         public string Mail { get; set; }
-
-        [Required, Phone]
         public string Phone { get; set; }
-
-        [Required, Phone]
         public string Cell { get; set; }
-
-        [Required]
         public string Address { get; set; }
+        public long RoleId { get; set; }
+        public long CityId { get; set; }
 
+        public City City { get; set; }
         public Role Role { get; set; }
+        public ICollection<Advertisement> Advertisement { get; set; }
     }
 }

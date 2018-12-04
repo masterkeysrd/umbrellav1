@@ -43,6 +43,7 @@ export class SubCategoryEditComponent implements OnInit {
   onSubmit() {
     const subCategory: SubCategory = Object.assign({}, this.subCategoryForm.value);
     console.log('Enviando data');
+    console.log(subCategory);
     this.subCategoryService.save(subCategory).subscribe(
       response => {
         console.log(response);

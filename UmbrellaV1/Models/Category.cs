@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace UmbrellaV1.Models
 {
-    public class Category
+    public partial class Category
     {
-        public int CategoryId { get; set; }
+        public Category()
+        {
+            SubCategory = new HashSet<SubCategory>();
+        }
+
+        public long CategoryId { get; set; }
         public string Description { get; set; }
 
-        public ICollection<SubCategory> SubCategories { get; set; }
+        public ICollection<SubCategory> SubCategory { get; set; }
     }
 }

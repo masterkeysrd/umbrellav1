@@ -50,7 +50,7 @@ namespace UmbrellaV1
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddDbContext<UmbrellaV1Context>(options =>
+            services.AddDbContext<umbrella_v1Context>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("UmbrellaV1Context")));
         }
 

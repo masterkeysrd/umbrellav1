@@ -1,10 +1,20 @@
-﻿namespace UmbrellaV1.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace UmbrellaV1.Models
 {
-    public class SubCategory
+    public partial class SubCategory
     {
-        public int SubCategoryId { get; set; }
+        public SubCategory()
+        {
+            Advertisement = new HashSet<Advertisement>();
+        }
+
+        public long CategoryId { get; set; }
+        public long SubCategoryId { get; set; }
         public string Description { get; set; }
 
         public Category Category { get; set; }
+        public ICollection<Advertisement> Advertisement { get; set; }
     }
 }
