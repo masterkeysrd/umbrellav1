@@ -1,6 +1,7 @@
-<div>
-  <p>Status: {{signUpForm.status}}</p>
-  <h2>Registro</h2>
+<div class="contenedor-form-registro">
+  <p class="estado">Status: {{signUpForm.status}}</p>
+  <img class="icon-user" src="../../../assets/US.png" />
+  <h2 class="registro">Registro</h2>
   <form class="form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <h4>Datos Personales</h4>
     <div class="form-group">
