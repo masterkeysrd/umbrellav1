@@ -1,15 +1,16 @@
 <div class="contenedor-form-seccion">
   
   <form>
-    <img src="../../../img/U.png" />
+    <img src="../../../assets/U.png" />
     <div class="form-group">
-      <label>Nombre de usuario</label>
+      <label >Nombre de usuario</label>
       <input class="form-control" id="user_name" name="user_name" type="text" [(ngModel)]="loginData.UserName" placeholder="Introduzca el nombre de usuario" />
     </div>
+   
     <div class="form-group">
       <label>Contraseña</label>
       <input class="form-control" id="password" name="password" type="password" [(ngModel)]="loginData.Password" placeholder="Introduzca la contraseña" />
-    </div>
+    </div><br />
     <button class="btn btn-primary btl" (click)="onLogin()">Iniciar Seccion</button>
     <button class="btn btn-secundary btl" (click)="socialSignIn('facebook')">Iniciar con FB</button>
   </form>
