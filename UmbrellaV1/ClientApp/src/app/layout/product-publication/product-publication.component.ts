@@ -23,7 +23,7 @@ export class ProductPublicationComponent implements OnInit {
   productPublicationForm: FormGroup;
   imageFile: File;
   imageChage: boolean;
-    url: string | ArrayBuffer;
+  url: string | ArrayBuffer;
 
   constructor(
     private categoryService: CategoryService,
@@ -94,4 +94,5 @@ export class ProductPublicationComponent implements OnInit {
 
       reader.readAsDataURL(event.target.files[0]);
     }
+  }
 }

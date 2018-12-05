@@ -3,12 +3,7 @@
   color: #a6cb12;
 }
 
-.icon-user {
-  margin-left: 50%;
-}
-
 .registro {
-  margin-left: 50%;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: #2A6171;
   font-size:40px;
@@ -16,7 +11,8 @@
 
 .datos-user {
   color: #F3D516;
-  font-size: 30px;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 
@@ -38,12 +34,7 @@ form {
   font-size: 20px;
   color: #2A6171;
 }
-/*segundo h4 */
-.cont {
-  margin-left: 50%;
-}
 
 .enviar-form {
-  width: 60%;
-  margin-left: 50%;
+  width: 100%;
 }

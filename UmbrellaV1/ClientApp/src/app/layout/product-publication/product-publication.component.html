@@ -1,5 +1,3 @@
-Status: {{productPublicationForm.valid}}
-Data: {{productPublicationForm.value | json}}
 <div class="product-publication-container">
   <h3>Publicación de Producto</h3>
   <form [formGroup]="productPublicationForm" (ngSubmit)="onSubmit()">
