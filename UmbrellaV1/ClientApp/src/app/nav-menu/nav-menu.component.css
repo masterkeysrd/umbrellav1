@@ -1,59 +1,101 @@
+
 li .glyphicon {
-    margin-right: 10px;
+    margin-right: 90px;
+   }
+
+
+/*Botones Iniciar seccion y Registrar*/
+.log,
+.log-two {
+  margin: 10px 10px;
+}
+
+
+/*Prueva de color para el el logo donde va el logo */
+.bg-light {
+  background-color: #80deea !important;
 }
 
 /* Highlighting rules for nav menu items */
 li.link-active a,
 li.link-active a:hover,
 li.link-active a:focus {
-    background-color: #4189C7;
-    color: white;
+  background-color: #2A6171;
+  color: white;
+  
+
 }
 
 /* Keep the nav menu independent of scrolling and on top of other items */
 .main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+/*Letra que funciona como logo*/
+.navbar-brand {
+  font-size: 35px;
+  margin-left: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #004d40;
 }
 
 @media (min-width: 768px) {
-    /* On small screens, convert the nav menu to a vertical sidebar */
-    .main-nav {
-        height: 100%;
-        width: calc(25% - 20px);
-    }
-    .navbar {
-        border-radius: 0px;
-        border-width: 0px;
-        height: 100%;
-    }
-    .navbar-header {
-        float: none;
-    }
-    .navbar-collapse {
-        border-top: 1px solid #444;
-        padding: 0px;
-    }
-    .navbar ul {
-        float: none;
-    }
-    .navbar li {
-        float: none;
-        font-size: 15px;
-        margin: 6px;
-    }
+  /* On small screens, convert the nav menu to a vertical sidebar */
+  .main-nav {
+    height: 100%;
+    width: calc(25% - 20px);
+  }
+
+  .navbar {
+    border-radius: 0px;
+    border-width: 0px;
+    height: 100%;
+   
+  }
+
+  .navbar-header {
+    float: none;
+  }
+
+  /*Caja contenedora de el segundo nav donde esta search*/
+  .navbar-collapse {
+    padding: 0px;
+    width: 480%;
+  }
+
+  .navbar ul {
+    float: none;
+  }
+  /*Tamano de las letras de los links del nav*/
+  .navbar li {
+    float: none;
+    font-size: 20px;
+    font-family:sans-serif;
+    margin: 6px;
+  }
+  
     .navbar li a {
-        padding: 10px 16px;
-        border-radius: 4px;
+      padding: 10px 16px;
+      border-radius: 4px;
     }
-    .navbar a {
-        /* If a menu item's text is too long, truncate it */
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
+
+  .navbar a {
+    /* If a menu item's text is too long, truncate it */
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+ 
+  /*Boton publicar anuncio*/
+  .ml-1 {
+   
+    width: 3%;
+    height: 2%;
+  }
+
+  }

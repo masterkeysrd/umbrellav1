@@ -1,6 +1,6 @@
 <div>
-  <a [routerLink]='["/login"]' class=""> Iniciar Seccion </a>
-  <a [routerLink]='["/sign-up"]' class="">Registrar</a>
+  <a [routerLink]='["/login"]' class="btn btn-outline-success log "> Iniciar Seccion </a>
+  <a [routerLink]='["/sign-up"]'  class="btn btn-info log-two">Registrar</a>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Umbrella</a>
@@ -29,8 +29,9 @@
 
     <div class="form-inline my-2 my-lg-0">
       <input type="search" class="form-control mr-sm-2" />
-      <button class="btn btn-primary btn-mofied">Buscar</button>
-      <a class="btn btn-secundary ml-1" [routerLink]='["/product/publication"]'>Nuevo Anuncio</a>
+      <button class="btn btn-info btn-mofied">Buscar</button>
+      <a class="btn btn-warning ml-1" [routerLink]='["/product/publication"]'>Nuevo Anuncio</a>
     </div>
+    
   </div>
 </nav>

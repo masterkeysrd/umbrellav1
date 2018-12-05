@@ -2,14 +2,15 @@
 
 .promotion-container {
   width: 100%;
-  background-color: #d1d0d0;
+  background-color:#fff;
   padding: 20px 0;
+  /*#2A6171*/
 }
 
 .promotion {
   width: 728px;
   height: 90px;
-  background-color: gray;
+  background-image: url('assets/bn.jpg');
   margin: 0 auto;
 }
 
@@ -18,7 +19,7 @@
 }
 
 .filter .filter-head {
-  background-color: gray;
+  background-color: #2A6171;
   color: #fff;
   font-size: 18px;
   font-weight: bold;
@@ -26,7 +27,7 @@
 }
 
 .filter .filter-body {
-  border: 1px solid gray;
+  border: 1px solid #2A6171;
 }
 
 .filter .filter-head,
@@ -38,13 +39,13 @@
 
 .product-result-head {
   margin-top: 10px;
-  background-color: gray;
+  background-color: #2A6171;
   color: #fff;
   font-weight: bold;
 }
 
 .product-item-title {
-  color: gray;
+  color: black;
   font-weight: bold;
 }
 
@@ -73,3 +74,7 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+/*Inicio de seccion*/
+
+
