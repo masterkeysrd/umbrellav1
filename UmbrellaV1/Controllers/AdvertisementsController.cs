@@ -54,6 +54,30 @@ namespace UmbrellaV1.Controllers
             return Ok(advertisement);
         }
 
+        [HttpGet]
+        [Route("search")]
+        public IEnumerable<Advertisement> Search([FromQuery] string search)
+        {
+
+            return _context.Advertisement
+                .Include(add => add.City)
+                .Include(add => add.Image)
+                .Include(add => add.User)
+                .Where(x => x.Title.Contains(search));
+        }
+
+        [HttpGet]
+        [Route("last")]
+        public IEnumerable<Advertisement> GetLast()
+        {
+            return _context.Advertisement
+               .Include(add => add.City)
+               .Include(add => add.Image)
+               .Include(add => add.User)
+               .OrderBy(x => x.CreatedDate)
+               .Take(10);
+        }
+
         // PUT: api/Advertisements/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAdvertisement([FromRoute] long id, [FromBody] Advertisement advertisement)

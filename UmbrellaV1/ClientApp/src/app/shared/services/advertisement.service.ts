@@ -23,6 +23,14 @@ export class AdvertisementService {
     return this.http.get<Advertisement[]>(this.apiUrl);
   }
 
+  getLast(): Observable<Advertisement[]> {
+    return this.http.get<Advertisement[]>(this.apiUrl + '/last');
+  }
+
+  search(query: any): Observable<Advertisement[]> {
+    return this.http.get<Advertisement[]>(this.apiUrl + '/search', { params: query });
+  }
+
   save(advertisement: Advertisement): Observable<Advertisement> {
     advertisement.CreatedDate = moment().utc();
     return this.http.post<Advertisement>(this.apiUrl, advertisement);

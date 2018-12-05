@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdvertisementService } from '../../shared/services/advertisement.service';
 import { Advertisement } from '../../shared/models/advertisement';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -11,9 +12,27 @@ export class ProductComponent implements OnInit {
   advertisements: Advertisement[];
   count: number;
 
-  constructor(private advertisementService: AdvertisementService) {
+  constructor(
+    private advertisementService: AdvertisementService,
+    private route: ActivatedRoute
+  ) {
     this.count = 0;
-    this.advertisementService.getAll().subscribe(
+    this.route.queryParams.subscribe(
+      data => {
+        if (data.search) {
+          this.search(data.search);
+        }
+        else {
+          this.getAll();
+        }
+      });
+  }
+
+  ngOnInit() {
+  }
+
+  getAll() {
+    this.advertisementService.getLast().subscribe(
       data => {
         this.advertisements = data;
         this.count = this.advertisements.length;
@@ -23,7 +42,18 @@ export class ProductComponent implements OnInit {
       });
   }
 
-  ngOnInit() {
-  }
+  search(searchText: string) {
+    const query: any = {
+      search: searchText
+    };
 
+    this.advertisementService.search(query).subscribe(
+      data => {
+        this.advertisements = data;
+        this.count = this.advertisements.length;
+      },
+      err => {
+        console.error(err);
+      });
+  }
 }

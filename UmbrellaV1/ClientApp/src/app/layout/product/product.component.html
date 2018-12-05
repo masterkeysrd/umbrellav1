@@ -1,9 +1,18 @@
-<div class="">
-  <div class="product-result-text">Se han encontrado {{count}} resultados.</div>
-  <div class="product-result">
-    <div class="product-result-head">Resultados de la busqueda</div>
-    <div class="product-result-body">
-      <app-product-item *ngFor="let p of advertisements" [productItem]="p"></app-product-item>
+<div class="fluid-container content">
+  <div class="row">
+    <div class="col-md-3">
+      <app-filter></app-filter>
+    </div>
+    <div class="col-md-9">
+      <div class="">
+        <div class="product-result-text">Se han encontrado {{count}} resultados.</div>
+        <div class="product-result">
+          <div class="product-result-head">Resultados de la busqueda</div>
+          <div class="product-result-body">
+            <app-product-item *ngFor="let p of advertisements" [productItem]="p"></app-product-item>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

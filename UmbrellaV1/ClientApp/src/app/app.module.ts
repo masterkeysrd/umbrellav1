@@ -38,6 +38,7 @@ import { SubCategoryEditComponent } from './admin/sub-category/sub-category-edit
 import { CityService } from './shared/services/city.service';
 import { AdvertisementService } from './shared/services/advertisement.service';
 import { ImageService } from './shared/services/image.service';
+import { AuthenticateDirective } from './shared/directives/authenticate.directive';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -80,7 +81,8 @@ export function getAuthServiceConfigs() {
     CategoryComponent,
     CategoryCreateComponent,
     SubCategoryComponent,
-    SubCategoryEditComponent
+    SubCategoryEditComponent,
+    AuthenticateDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -97,6 +99,7 @@ export function getAuthServiceConfigs() {
       { path: 'shops', component: ShopsComponent },
       { path: 'product/publication', component: ProductPublicationComponent },
       { path: 'product/view/:id', component: ProductViewComponent },
+      { path: 'product/search', component: ProductComponent},
       { path: 'admin/category/create', component: CategoryCreateComponent },
       { path: 'admin/sub-category/create', component: SubCategoryEditComponent }
     ])
