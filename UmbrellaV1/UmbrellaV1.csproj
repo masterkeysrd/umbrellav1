@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Migrations\" />
+    <Folder Include="DbScripts\" />
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
