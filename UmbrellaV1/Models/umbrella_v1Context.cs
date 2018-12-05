@@ -18,6 +18,7 @@ namespace UmbrellaV1.Models
         public virtual DbSet<Advertisement> Advertisement { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<City> City { get; set; }
+        public virtual DbSet<Image> Image { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<SubCategory> SubCategory { get; set; }
         public virtual DbSet<User> User { get; set; }
@@ -70,6 +71,18 @@ namespace UmbrellaV1.Models
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Image>(entity =>
+            {
+                entity.Property(e => e.ImageName)
+                    .IsRequired()
+                    .HasMaxLength(1000);
+
+                entity.HasOne(d => d.Advertisement)
+                    .WithMany(p => p.Image)
+                    .HasForeignKey(d => d.AdvertisementId)
+                    .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
             modelBuilder.Entity<Role>(entity =>

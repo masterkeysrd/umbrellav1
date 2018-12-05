@@ -1,6 +1,6 @@
 <div class="product-item row">
   <div class="col-md-2">
-    <img class="img-thumbnail" src="../../../assets/download.svg" />
+    <img class="img-thumbnail" [src]="imageUrl" />
   </div>
   <div class="col-md-10">
     <div class="row">
@@ -21,7 +21,7 @@
         Ubicacion: {{productItem.City.Name}}
       </div>
       <div class="col-md-3">
-        ususario
+        {{productItem.User.UserName}}
       </div>
     </div>
   </div>

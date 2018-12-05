@@ -5,6 +5,11 @@ namespace UmbrellaV1.Models
 {
     public partial class Advertisement
     {
+        public Advertisement()
+        {
+            Image = new HashSet<Image>();
+        }
+
         public long AdvertisementId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -17,5 +22,6 @@ namespace UmbrellaV1.Models
         public City City { get; set; }
         public SubCategory SubCategory { get; set; }
         public User User { get; set; }
+        public ICollection<Image> Image { get; set; }
     }
 }

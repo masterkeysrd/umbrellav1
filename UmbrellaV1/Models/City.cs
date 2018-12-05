@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace UmbrellaV1.Models
@@ -17,7 +17,6 @@ namespace UmbrellaV1.Models
 
         [JsonIgnore]
         public ICollection<Advertisement> Advertisement { get; set; }
-
         [JsonIgnore]
         public ICollection<User> User { get; set; }
     }

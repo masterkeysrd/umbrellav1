@@ -20,7 +20,7 @@ export class AdvertisementService {
   }
 
   save(advertisement: Advertisement): Observable<Advertisement> {
-    advertisement.createdDate = moment().utc();
+    advertisement.CreatedDate = moment().utc();
     return this.http.post<Advertisement>(this.apiUrl, advertisement);
   }
 }

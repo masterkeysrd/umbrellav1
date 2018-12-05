@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UmbrellaV1.Models;
 
 namespace UmbrellaV1.Controllers
 {
@@ -15,17 +16,26 @@ namespace UmbrellaV1.Controllers
     public class ImagesController : ControllerBase
     {
         private readonly IHostingEnvironment _environment;
+        private readonly umbrella_v1Context _context;
 
-        public ImagesController(IHostingEnvironment environment)
+        public ImagesController(IHostingEnvironment environment, umbrella_v1Context context)
         {
             _environment = environment;
+            _context = context;
         }
 
         [HttpPost]
         [Route("upload/advertistement/{id}/{number}")]
-        public async Task<IActionResult> PostUserImage([FromRoute] long id, [FromRoute] long number, IFormFile file)
+        public async Task<IActionResult> PostUserImage([FromRoute] long id, [FromRoute] int number, IFormFile file)
         {
             string fileName = "IMG_" + DateTime.Now.ToString("ddMMyyyy_") + id + number + file.FileName;
+            Image image = new Image()
+            {
+                ImageName = fileName,
+                Secuencial = number,
+                AdvertisementId = id
+            };
+
             var uploads = Path.Combine(_environment.WebRootPath, "uploads");
             if (file.Length > 0)
             {
@@ -35,6 +45,8 @@ namespace UmbrellaV1.Controllers
                 }
             }
 
+            _context.Add(image);
+            await _context.SaveChangesAsync();
             return Ok();
         }
 
@@ -42,14 +54,17 @@ namespace UmbrellaV1.Controllers
         [Route("download/advertistement/{id}/{number}")]
         public async Task<IActionResult> Download([FromRoute] long id, [FromRoute] long number)
         {
-            string filename = "6543213.jpg";
 
-            if (filename == null)
-                return Content("filename not present");
+            var image = _context.Image
+                .Where(x => x.AdvertisementId == id && x.Secuencial == number)
+                .First();
+
+            if (image == null)
+                return Content("image not exist");
 
             var path = Path.Combine(
                            _environment.WebRootPath,
-                           "uploads", filename);
+                           "uploads", image.ImageName);
 
             var memory = new MemoryStream();
             using (var stream = new FileStream(path, FileMode.Open))

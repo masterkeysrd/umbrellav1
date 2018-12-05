@@ -37,6 +37,7 @@ import { SubCategoryComponent } from './admin/sub-category/sub-category/sub-cate
 import { SubCategoryEditComponent } from './admin/sub-category/sub-category-edit/sub-category-edit.component';
 import { CityService } from './shared/services/city.service';
 import { AdvertisementService } from './shared/services/advertisement.service';
+import { ImageService } from './shared/services/image.service';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -106,6 +107,7 @@ export function getAuthServiceConfigs() {
     SubCategoryService,
     CityService,
     AdvertisementService,
+    ImageService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

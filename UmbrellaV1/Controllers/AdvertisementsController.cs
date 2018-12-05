@@ -25,7 +25,9 @@ namespace UmbrellaV1.Controllers
         public IEnumerable<Advertisement> GetAdvertisement()
         {
             return _context.Advertisement
-                .Include(add => add.City);
+                .Include(add => add.City)
+                .Include(add => add.Image)
+                .Include(add => add.User);
         }
 
         // GET: api/Advertisements/5

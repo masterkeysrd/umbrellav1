@@ -58,17 +58,17 @@ export class ProductPublicationComponent implements OnInit {
 
   createForm(): void {
     this.productPublicationForm = this.fb.group({
-      title: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      cityId: ['', [Validators.required]],
-      subCategoryId: ['', [Validators.required]]
+      Title: ['', [Validators.required]],
+      Description: ['', [Validators.required]],
+      Price: ['', [Validators.required]],
+      CityId: ['', [Validators.required]],
+      SubCategoryId: ['', [Validators.required]]
     });
   }
 
   onSubmit(): void {
     let productPublication: Advertisement = Object.assign({}, this.productPublicationForm.value);
-    productPublication.userId = 3;
+    productPublication.UserId = 3;
     console.log('Enviando data...');
     console.log(productPublication);
     this.advertisementService.save(productPublication).subscribe(
