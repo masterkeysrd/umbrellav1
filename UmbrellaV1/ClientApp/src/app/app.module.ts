@@ -39,6 +39,7 @@ import { CityService } from './shared/services/city.service';
 import { AdvertisementService } from './shared/services/advertisement.service';
 import { ImageService } from './shared/services/image.service';
 import { AuthenticateDirective } from './shared/directives/authenticate.directive';
+import { AnonymousDirective } from './shared/directives/anonymous.directive';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -82,7 +83,8 @@ export function getAuthServiceConfigs() {
     CategoryCreateComponent,
     SubCategoryComponent,
     SubCategoryEditComponent,
-    AuthenticateDirective
+    AuthenticateDirective,
+    AnonymousDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

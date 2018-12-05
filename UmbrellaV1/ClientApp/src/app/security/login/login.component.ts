@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../shared/services/login.service';
 import { UserLogin } from '../../shared/models/user-login';
 import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular-6-social-login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +23,11 @@ export class LoginComponent implements OnInit {
   };
   loginData: UserLogin;
 
-  constructor(private loginService: LoginService,
-    private socialAuthenticationService: AuthService) { }
+  constructor(
+    private loginService: LoginService,
+    private socialAuthenticationService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.loginData = new UserLogin(null, null);
@@ -32,9 +36,9 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.loginService.login(this.loginData)
       .subscribe(data => {
-        let token = (<any>data).token;
-        localStorage.setItem("Jwt", token);
-        console.log(data);
+        let token = (<any>data).Token;
+        localStorage.setItem("jwt", token);
+        this.router.navigate(["/"]);
       },
         err => {
           console.error(err);
