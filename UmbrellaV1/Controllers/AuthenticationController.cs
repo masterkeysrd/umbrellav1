@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using UmbrellaV1.Models;
 using UmbrellaV1.Utils;
 using UmbrellaV1.ViewModels;
 
@@ -19,10 +20,12 @@ namespace UmbrellaV1.Controllers
     public class AuthenticationController : ControllerBase
     {
         private IConfiguration configuration;
+        private readonly umbrella_v1Context _context;
 
-        public AuthenticationController(IConfiguration configuration)
+        public AuthenticationController(IConfiguration configuration, umbrella_v1Context context)
         {
             this.configuration = configuration;
+            _context = context;
         }
 
         [HttpPost, Route("login")]
@@ -33,7 +36,11 @@ namespace UmbrellaV1.Controllers
                 return BadRequest("Solitud del cliente invalida.");
             }
 
-            if (user.UserName == "user" && user.Password == "12345")
+            var userData = _context.User
+                .Where(x => x.UserName == user.UserName && x.Password == user.Password)
+                .First();
+
+            if (userData != null)
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration[ConfigurationConstants.JWT_KEY]));
                 var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
@@ -41,7 +48,11 @@ namespace UmbrellaV1.Controllers
                 var tokenOptions = new JwtSecurityToken(
                     issuer: configuration[ConfigurationConstants.JWT_ISSUER],
                     audience: configuration[ConfigurationConstants.JWT_ISSUER],
-                    claims: new List<Claim>(),
+                    claims: new List<Claim>() {
+                        new Claim(ClaimTypes.Role, userData.Role.Description),
+                        new Claim(ClaimTypes.Name, userData.UserName),
+                        new Claim("userId", userData.UserId.ToString())
+                    },
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: signingCredentials
                     );

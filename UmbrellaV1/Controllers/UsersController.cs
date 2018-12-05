@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +27,32 @@ namespace UmbrellaV1.Controllers
         public IEnumerable<User> GetUser()
         {
             return _context.User;
+        }
+
+
+        [HttpGet("current"), Authorize()]
+        public async Task<IActionResult> getCurrentUser()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                var userId = identity.Claims
+                    .Where(x => x.Type == "UserId")
+                    .First();
+                //
+
+                if (userId == null)
+                    return NotFound();
+
+                var user = _context.User
+                    .Where(x => x.UserId == int.Parse(userId.Value))
+                    .First();
+
+                return Ok(user);
+            }
+
+            return NotFound();
         }
 
         // GET: api/Users/5

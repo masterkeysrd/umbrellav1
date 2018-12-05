@@ -40,6 +40,7 @@ import { AdvertisementService } from './shared/services/advertisement.service';
 import { ImageService } from './shared/services/image.service';
 import { AuthenticateDirective } from './shared/directives/authenticate.directive';
 import { AnonymousDirective } from './shared/directives/anonymous.directive';
+import { AccountComponent } from './layout/account/account.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -84,7 +85,8 @@ export function getAuthServiceConfigs() {
     SubCategoryComponent,
     SubCategoryEditComponent,
     AuthenticateDirective,
-    AnonymousDirective
+    AnonymousDirective,
+    AccountComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -103,7 +105,8 @@ export function getAuthServiceConfigs() {
       { path: 'product/view/:id', component: ProductViewComponent },
       { path: 'product/search', component: ProductComponent},
       { path: 'admin/category/create', component: CategoryCreateComponent },
-      { path: 'admin/sub-category/create', component: SubCategoryEditComponent }
+      { path: 'admin/sub-category/create', component: SubCategoryEditComponent },
+      { path: 'account', component: AccountComponent }
     ])
   ],
   providers: [
