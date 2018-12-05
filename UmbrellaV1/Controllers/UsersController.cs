@@ -30,8 +30,8 @@ namespace UmbrellaV1.Controllers
         }
 
 
-        [HttpGet("current"), Authorize()]
-        public async Task<IActionResult> getCurrentUser()
+        [HttpGet("authenticate"), Authorize()]
+        public async Task<IActionResult> GetCurrentUser()
         {
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             if (identity != null)
@@ -45,9 +45,9 @@ namespace UmbrellaV1.Controllers
                 if (userId == null)
                     return NotFound();
 
-                var user = _context.User
+                var user = await _context.User
                     .Where(x => x.UserId == int.Parse(userId.Value))
-                    .First();
+                    .FirstAsync();
 
                 return Ok(user);
             }

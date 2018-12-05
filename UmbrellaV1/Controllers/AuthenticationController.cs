@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using UmbrellaV1.Models;
@@ -37,6 +38,7 @@ namespace UmbrellaV1.Controllers
             }
 
             var userData = _context.User
+                .Include(x => x.Role)
                 .Where(x => x.UserName == user.UserName && x.Password == user.Password)
                 .First();
 
