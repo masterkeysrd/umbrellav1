@@ -3,7 +3,7 @@
   <img class="icon-user" src="../../../assets/US.png" />
   <h2 class="registro">Registro</h2>
   <form class="form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <h4>Datos Personales</h4>
+    <h4 class="datos-user">Datos Personales</h4>
     <div class="form-group">
       <label for="field_name">Nombre</label>
       <input type="text" class="form-control" id="field_name" formControlName="name" />
@@ -24,7 +24,7 @@
       <label for="field_confirm_password">Confirmar Contraseña</label>
       <input type="password" class="form-control" id="field_confirm_password" formControlName="confirmPassword" />
     </div>
-    <h4>Contacto</h4>
+    <h4 class="datos-user cont">Contacto</h4>
     <div class="form-group">
       <label for="field_phone">Telefono</label>
       <input type="tel" class="form-control" id="field_phone" name="field_phone" formControlName="phone" />
@@ -37,6 +37,6 @@
       <label for="field_address">Direccion</label>
       <textarea class="form-control" id="field_address" formControlName="address"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!signUpForm.valid">Enviar</button>
+    <button type="submit" class="btn btn-info enviar-form" [disabled]="!signUpForm.valid">Enviar</button>
   </form>
 </div>
