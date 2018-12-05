@@ -10,6 +10,7 @@ import { Advertisement } from '../../shared/models/advertisement';
 import { AdvertisementService } from '../../shared/services/advertisement.service';
 import * as moment from 'moment';
 import { Image } from '../../shared/models/image';
+import { ImageService } from '../../shared/services/image.service';
 
 @Component({
   selector: 'app-product-publication',
@@ -30,24 +31,16 @@ export class ProductPublicationComponent implements OnInit {
     private subCategoryService: SubCategoryService,
     private cityService: CityService,
     private advertisementService: AdvertisementService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private imageService: ImageService
   ) {
     this.createForm();
     this.categoryService.getAll().subscribe(
       data => {
         this.categories = data;
-        console.log(this.categories);
       },
       err => {
         console.error(err);
-      });
-    this.subCategoryService.getAll().subscribe(
-      data => {
-        this.subCategories = data;
-        console.log(data);
-      },
-      err => {
-        console.log(err);
       });
     this.cityService.getAll().subscribe(
       data => {
@@ -66,6 +59,7 @@ export class ProductPublicationComponent implements OnInit {
       Description: ['', [Validators.required]],
       Price: ['', [Validators.required]],
       CityId: ['', [Validators.required]],
+      CategoryId: ['', [Validators.required]],
       SubCategoryId: ['', [Validators.required]]
     });
   }
@@ -73,25 +67,41 @@ export class ProductPublicationComponent implements OnInit {
   onSubmit(): void {
     let productPublication: Advertisement = Object.assign({}, this.productPublicationForm.value);
     productPublication.UserId = 3;
-    console.log('Enviando data...');
-    console.log(productPublication);
     this.advertisementService.save(productPublication).subscribe(
       data => {
-        console.log(data);
+        this.imageService
+          .uploadImage(data.AdvertisementId, 1, this.imageFile)
+          .subscribe(data => {
+
+          },
+          err => {
+            console.error(err);
+          });
       },
       err => {
         console.error(err);
       });
   }
 
+  onChangeCategory() {
+    this.productPublicationForm.value.SubCategoryId = null;
+    this.subCategoryService.getAll().subscribe(
+      data => {
+        this.subCategories = data.filter(x => x.CategoryId === this.productPublicationForm.value.CategoryId);
+      },
+      err => {
+        console.log(err);
+      });
+  }
+
   onFileChange(event: any) {
+    console.log('En el evento');
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       this.imageFile = event.target.files[0];
       reader.onload = (evente: ProgressEvent) => {
         this.url = (<FileReader>evente.target).result;
       }
-
       reader.readAsDataURL(event.target.files[0]);
     }
   }

@@ -9,13 +9,14 @@ import { Advertisement } from '../../shared/models/advertisement';
 })
 export class ProductComponent implements OnInit {
   advertisements: Advertisement[];
+  count: number;
 
   constructor(private advertisementService: AdvertisementService) {
-    console.log('Test');
+    this.count = 0;
     this.advertisementService.getAll().subscribe(
       data => {
         this.advertisements = data;
-        console.log(data);
+        this.count = this.advertisements.length;
       },
       err => {
         console.error(err);

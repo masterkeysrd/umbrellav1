@@ -4,7 +4,7 @@
     <div class="product-publication">
       <div class="product-publication-title">Selección de imagen</div>
       <div class="product-publication-text">Click sobre la foto que deseas como imagen principal</div>
-      <input type="file" class="form-control" #imageInput (onFileChangeEvent)="onFileChange($event)"/>
+      <input type="file" class="form-control" (change)="onFileChange($event)"/>
     </div>
 
     <div class="product-publication">
@@ -15,15 +15,15 @@
       </div>
       <div class="form-group">
         <label for="field_category">Categoria</label>
-        <select class="form-control" id="field_category" name="field_category">
-          <option [value]="">Elegir</option>
+        <select class="form-control" id="field_category" name="field_category" (change)="onChangeCategory()" formControlName="CategoryId">
+          <option [ngValue]="">Elegir</option>
           <option *ngFor="let c of categories" [ngValue]="c.CategoryId">{{c.Description}}</option>
         </select>
       </div>
       <div class="form-group">
         <label for="field_sub_category">Sub Categoria</label>
         <select class="form-control" id="field_sub_category" name="field_sub_category" formControlName="SubCategoryId">
-          <option [value]="">Elegir</option>
+          <option [ngValue]="">Elegir</option>
           <option *ngFor="let s of subCategories" [ngValue]="s.SubCategoryId">{{s.Description}}</option>
         </select>
       </div>

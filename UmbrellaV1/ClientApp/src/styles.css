@@ -62,13 +62,18 @@
 .product-item-img {
   width: 100%;
   height: 150px;
-  background-color: gray;
+  border: 1px solid #dee2e6;
 }
 
-.product-publication-container {
-  width: 75%;
-  margin: 0 auto;
+.product-item-img .img-thumbnail {
+  height: 100% !important;
+  border: none;
 }
+
+  .product-publication-container {
+    width: 75%;
+    margin: 0 auto;
+  }
 
 .product-publication-title {
   font-size: 18px;
