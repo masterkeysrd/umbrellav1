@@ -3,8 +3,12 @@
   <form [formGroup]="productPublicationForm" (ngSubmit)="onSubmit()">
     <div class="product-publication">
       <div class="product-publication-title">Selección de imagen</div>
-      <div class="product-publication-text">Click sobre la foto que deseas como imagen principal</div>
-      <input type="file" class="form-control" (change)="onFileChange($event)"/>
+      <div class="product-publication-text mt-3">Imagen Principal</div>
+      <input type="file" class="form-control-file mt-2" (change)="onFileChange($event, 1)" />
+
+      <div class="product-publication-text mt-3">Imagenes Secundarias</div>
+      <input type="file" class="form-control-file mt-2" (change)="onFileChange($event, 2)" />
+      <input type="file" class="form-control-file mt-2" (change)="onFileChange($event, 3)" />
     </div>
 
     <div class="product-publication">

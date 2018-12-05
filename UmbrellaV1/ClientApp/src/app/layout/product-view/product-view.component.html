@@ -1,3 +1,63 @@
-<p>
-  product-view works!
-</p>
+<div class="mt-3" *ngIf="advertisement">
+  <div class="row page-container">
+    <div class="col-md-4 product-view-img-container">
+      <div class="align-items-center">
+        <div class="preview-pic tab-content">
+          <div class="tab-pane active" id="pic-1" *ngIf="urls[0]">
+            <img [src]="urls[0]" class="img-fluid" />
+          </div>
+          <div class="tab-pane" id="pic-2" *ngIf="urls[1]">
+            <img [src]="urls[1]" class="img-fluid" />
+          </div>
+          <div class="tab-pane" id="pic-3" *ngIf="urls[2]">
+            <img [src]="urls[2]" class="img-fluid" />
+          </div>
+        </div>
+        <ul class="preview-thumbnail nav nav-tabs">
+          <li class="active">
+            <a data-target="#pic-1" data-toggle="tab" *ngIf="urls[0]">
+              <img [src]="urls[0]" />
+            </a>
+          </li>
+          <li *ngIf="urls[1]">
+            <a data-target="#pic-2" data-toggle="tab"><img [src]="urls[1]" /></a>
+          </li>
+          <li *ngIf="urls[2]">
+            <a data-target="#pic-3" data-toggle="tab"><img [src]="urls[2]" /></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>{{advertisement.Title}}</h3>
+        </div>
+        <div class="col-md-12">
+          <span><b>Condicion:</b> Nuevo</span>
+        </div>
+        <div class="col-md-12">
+          <span><b>Lugar:</b> {{advertisement.City.Name}}</span>
+        </div>
+        <div class="col-md-12 mt-2">
+          <h1>RD$  {{advertisement.Price}}</h1>
+        </div>
+        <div class="col-md-12 mt-2">
+          <h5>Tips que debes tener en cuenta:</h5>
+          <ul>
+            <li>Tips que debes tener en cuenta:</li>
+            <li>Solicita documento de identificación al vendedor.</li>
+            <li>Realiza en el cuentro en un lugar público.</li>
+            <li>Verifica que el equipo que compras funciona correctamente.</li>
+            <li>Manten el número de contacto del vendedor.</li>
+            <li>Nunca hagas un depósito sin tener tu equipo en mano.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <h2>Descripción</h2>
+      <p>{{advertisement.Description}}</p>
+    </div>
+  </div>
+</div>

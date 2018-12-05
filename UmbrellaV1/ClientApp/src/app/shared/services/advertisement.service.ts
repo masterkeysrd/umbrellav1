@@ -15,6 +15,10 @@ export class AdvertisementService {
     this.apiUrl = baseUrl + 'api/v1/advertisement'
   }
 
+  find(id: number): Observable<Advertisement> {
+    return this.http.get<Advertisement>(this.apiUrl + '/' + id);
+  }
+
   getAll(): Observable<Advertisement[]> {
     return this.http.get<Advertisement[]>(this.apiUrl);
   }

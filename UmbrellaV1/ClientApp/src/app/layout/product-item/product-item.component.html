@@ -1,28 +1,30 @@
-<div class="product-item row">
-  <div class="col-md-3 product-item-img text-center">
-    <img class="img-thumbnail" [src]="imageUrl" />
-  </div>
-  <div class="col-md-9">
-    <div class="row">
-      <div class="product-item-title col-md-12">
-        {{productItem.Title}}
-      </div>
-      <div class="product-item-price col-md-12">
-        RD$ {{productItem.Price}}
-      </div>
-      <br /><br />
-      <div class="col-md-9">
-        <b>Condicion:</b> Nuevo
-      </div>
-      <div class="col-md-3">
-        Hace 20 minutos
-      </div>
-      <div class="col-md-9">
-        <b>Ubicacion:</b> {{productItem.City.Name}}
-      </div>
-      <div class="col-md-3">
-        {{productItem.User.UserName}}
+<a [routerLink]="['/product/view', productItem.AdvertisementId]">
+  <div class="product-item row">
+    <div class="col-md-3 product-item-img text-center">
+      <img class="img-thumbnail" [src]="imageUrl" />
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="product-item-title col-md-12">
+          {{productItem.Title}}
+        </div>
+        <div class="product-item-price col-md-12">
+          RD$ {{productItem.Price}}
+        </div>
+        <br /><br />
+        <div class="col-md-9">
+          <b>Condicion:</b> Nuevo
+        </div>
+        <div class="col-md-3">
+          Hace 20 minutos
+        </div>
+        <div class="col-md-9">
+          <b>Ubicacion:</b> {{productItem.City.Name}}
+        </div>
+        <div class="col-md-3">
+          {{productItem.User.UserName}}
+        </div>
       </div>
     </div>
   </div>
-</div>
+</a>

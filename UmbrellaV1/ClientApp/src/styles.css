@@ -80,6 +80,11 @@
   font-weight: bold;
 }
 
-/*Inicio de seccion*/
+.product-view-img-container {
+  height: 460px;
+}
 
-
+.page-container {
+  width: 90%;
+  margin: 0 auto;
+}

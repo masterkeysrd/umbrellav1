@@ -23,6 +23,8 @@ export class ProductPublicationComponent implements OnInit {
   cities: City[];
   productPublicationForm: FormGroup;
   imageFile: File;
+  imageFile2: File;
+  imageFile3: File;
   imageChage: boolean;
   url: string | ArrayBuffer;
 
@@ -69,14 +71,30 @@ export class ProductPublicationComponent implements OnInit {
     productPublication.UserId = 3;
     this.advertisementService.save(productPublication).subscribe(
       data => {
+        if (this.imageFile)
         this.imageService
           .uploadImage(data.AdvertisementId, 1, this.imageFile)
-          .subscribe(data => {
-
-          },
+          .subscribe(() => {},
           err => {
             console.error(err);
           });
+
+        if (this.imageFile2)
+        this.imageService
+          .uploadImage(data.AdvertisementId, 2, this.imageFile2)
+          .subscribe(() => { },
+            err => {
+              console.error(err);
+          });
+
+        if (this.imageFile3)
+        this.imageService
+          .uploadImage(data.AdvertisementId, 3, this.imageFile3)
+          .subscribe(() => { },
+            err => {
+              console.error(err);
+            });
+
       },
       err => {
         console.error(err);
@@ -94,11 +112,22 @@ export class ProductPublicationComponent implements OnInit {
       });
   }
 
-  onFileChange(event: any) {
+  onFileChange(event: any, number) {
     console.log('En el evento');
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-      this.imageFile = event.target.files[0];
+      switch (number) {
+        case 1:
+          this.imageFile = event.target.files[0];
+          break;
+        case 2:
+          this.imageFile2 = event.target.files[0];
+          break;
+        case 3:
+          this.imageFile3 = event.target.files[0];
+          break;
+      }
+      
       reader.onload = (evente: ProgressEvent) => {
         this.url = (<FileReader>evente.target).result;
       }

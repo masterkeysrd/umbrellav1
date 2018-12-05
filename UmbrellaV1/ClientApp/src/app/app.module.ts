@@ -96,6 +96,7 @@ export function getAuthServiceConfigs() {
       { path: 'sign-up', component: SignUpComponent },
       { path: 'shops', component: ShopsComponent },
       { path: 'product/publication', component: ProductPublicationComponent },
+      { path: 'product/view/:id', component: ProductViewComponent },
       { path: 'admin/category/create', component: CategoryCreateComponent },
       { path: 'admin/sub-category/create', component: SubCategoryEditComponent }
     ])

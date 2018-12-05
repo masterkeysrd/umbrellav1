@@ -39,7 +39,12 @@ namespace UmbrellaV1.Controllers
                 return BadRequest(ModelState);
             }
 
-            var advertisement = await _context.Advertisement.FindAsync(id);
+            var advertisement = await _context.Advertisement
+                .Include(add => add.City)
+                .Include(add => add.Image)
+                .Include(add => add.User)
+                .Where(x => x.AdvertisementId == id)
+                .FirstAsync();
 
             if (advertisement == null)
             {

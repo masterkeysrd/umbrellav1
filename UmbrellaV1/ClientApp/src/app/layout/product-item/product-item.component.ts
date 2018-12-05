@@ -15,7 +15,6 @@ export class ProductItemComponent implements OnInit {
   constructor(private imageService: ImageService) {}
 
   ngOnInit() {
-  console.log(this.productItem);
     this.imageUrl = this.imageService.getImageUrl(this.productItem.AdvertisementId, 1);
   }
 
