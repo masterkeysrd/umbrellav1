@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Advertisement } from '../../shared/models/advertisement';
 import { AdvertisementService } from '../../shared/services/advertisement.service';
 import * as moment from 'moment';
+import { Image } from '../../shared/models/image';
 
 @Component({
   selector: 'app-product-publication',
@@ -20,6 +21,9 @@ export class ProductPublicationComponent implements OnInit {
   subCategories: SubCategory[];
   cities: City[];
   productPublicationForm: FormGroup;
+  imageFile: File;
+  imageChage: boolean;
+    url: string | ArrayBuffer;
 
   constructor(
     private categoryService: CategoryService,
@@ -79,4 +83,15 @@ export class ProductPublicationComponent implements OnInit {
         console.error(err);
       });
   }
+
+  onFileChange(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      this.imageFile = event.target.files[0];
+      reader.onload = (evente: ProgressEvent) => {
+        this.url = (<FileReader>evente.target).result;
+      }
+
+      reader.readAsDataURL(event.target.files[0]);
+    }
 }

@@ -6,36 +6,36 @@ Data: {{productPublicationForm.value | json}}
     <div class="product-publication">
       <div class="product-publication-title">Selección de imagen</div>
       <div class="product-publication-text">Click sobre la foto que deseas como imagen principal</div>
-      <input type="file" class="form-control" />
+      <input type="file" class="form-control" #imageInput (onFileChangeEvent)="onFileChange($event)"/>
     </div>
 
     <div class="product-publication">
       <div class="product-publication-title">Detalles del producto</div>
       <div class="form-group">
         <label for="field_title">Titulo publicación</label>
-        <input type="text" class="form-control" id="field_title" name="field_title" formControlName="title" />
+        <input type="text" class="form-control" id="field_title" name="field_title" formControlName="Title" />
       </div>
       <div class="form-group">
         <label for="field_category">Categoria</label>
         <select class="form-control" id="field_category" name="field_category">
           <option [value]="">Elegir</option>
-          <option *ngFor="let c of categories" [ngValue]="c.categoryId">{{c.description}}</option>
+          <option *ngFor="let c of categories" [ngValue]="c.CategoryId">{{c.Description}}</option>
         </select>
       </div>
       <div class="form-group">
         <label for="field_sub_category">Sub Categoria</label>
-        <select class="form-control" id="field_sub_category" name="field_sub_category" formControlName="subCategoryId">
+        <select class="form-control" id="field_sub_category" name="field_sub_category" formControlName="SubCategoryId">
           <option [value]="">Elegir</option>
-          <option *ngFor="let s of subCategories" [ngValue]="s.subCategoryId">{{s.description}}</option>
+          <option *ngFor="let s of subCategories" [ngValue]="s.SubCategoryId">{{s.Description}}</option>
         </select>
       </div>
       <div class="form-group">
         <label for="field_price">Precio</label>
-        <input type="number" class="form-control" id="field_price" name="field_price" formControlName="price" />
+        <input type="number" class="form-control" id="field_price" name="field_price" formControlName="Price" />
       </div>
       <div class="form-group">
         <label for="field_description">Descripcion</label>
-        <textarea class="form-control" id="field_description" name="field_description" formControlName="description"></textarea>
+        <textarea class="form-control" id="field_description" name="field_description" formControlName="Description"></textarea>
       </div>
     </div>
 
@@ -49,9 +49,9 @@ Data: {{productPublicationForm.value | json}}
       </div>
       <div class="form-group">
         <label for="field_city">Ciudad</label>
-        <select class="form-control" id="field_city" name="field_city" formControlName="cityId">
+        <select class="form-control" id="field_city" name="field_city" formControlName="CityId">
           <option [value]="">Elegir</option>
-          <option *ngFor="let c of cities" [ngValue]="c.cityId">{{c.name}}</option>
+          <option *ngFor="let c of cities" [ngValue]="c.CityId">{{c.Name}}</option>
         </select>
       </div>
     </div>
