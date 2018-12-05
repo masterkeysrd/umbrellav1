@@ -40,7 +40,7 @@ export class AccountComponent implements OnInit {
     this.personalData.setValue({
       'name': this.user.Name,
       'mail': this.user.Mail,
-      'UserName': this.user.userName
+      'UserName': this.user.UserName
     });
   }
 }
