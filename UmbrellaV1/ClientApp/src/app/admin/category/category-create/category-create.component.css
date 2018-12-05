@@ -1,0 +1,25 @@
+img {
+  margin-left: 30%;;
+  margin-right: auto;
+}
+form {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-top: 3%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 30px;
+  color: #2A6171;
+}
+
+label {
+  margin-left:30%;
+  margin-right: auto;
+}
+
+.btn-form-cre {
+  margin-top: 3%;
+  margin-left: 20%;
+  margin-right: 4px;
+}
